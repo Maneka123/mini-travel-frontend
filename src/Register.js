@@ -3,11 +3,7 @@ import React, { useState } from "react";
 const API_URL = "https://mini-travel-experience-listing-plat-omega.vercel.app/api/register";
 
 function Register() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: ""
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", password: "" });
   const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
