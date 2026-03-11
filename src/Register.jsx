@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const API_URL = "https://mini-travel-experience-listing-plat-omega.vercel.app/api/register";
 
 function Register() {
   const [formData, setFormData] = useState({ name: "", email: "", password: "" });
   const [message, setMessage] = useState("");
+  const navigate = useNavigate(); // for redirect
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -28,6 +30,11 @@ function Register() {
       } else {
         setMessage("Registration successful!");
         setFormData({ name: "", email: "", password: "" });
+
+        // Redirect to Login after 1 second
+        setTimeout(() => {
+          navigate("/login");
+        }, 1000);
       }
     } catch (error) {
       console.error(error);
